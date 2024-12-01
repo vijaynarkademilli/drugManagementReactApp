@@ -1,11 +1,14 @@
 export interface Drug {
   id: number;
   name: string;
-  manufacturer: string;
-  price: number;
-  expiryDate: string;
-  stock: number;
   batchNumber: string;
+  expiryDate: string;
+  quantity: number;
+  price: number;
+  amount: number;
+  mrp: number;
+  gst: number;
+
 }
 
 export interface PaginatedResponse<T> {

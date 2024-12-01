@@ -7,11 +7,15 @@ const AddDrug = () => {
   const [error, setError] = useState<string | null>(null);
   const [drug, setDrug] = useState({
     name: '',
-    manufacturer: '',
-    price: '',
+    batchNumber:'',
     expiryDate: '',
-    stock: '',
-    batchNumber:''
+    quantity: '',
+    price: '',
+    amount:'',
+    mrp: '',
+    gst:''
+
+
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,7 +25,10 @@ const AddDrug = () => {
       await addDrug({
         ...drug,
         price: Number(drug.price),
-        stock: Number(drug.stock)
+        quantity: Number(drug.quantity),
+        amount: Number(drug.amount),
+        mrp: Number(drug.mrp),
+        gst: Number(drug.gst)
       });
       navigate('/drugs');
     } catch (error) {
@@ -60,17 +67,32 @@ const AddDrug = () => {
               required
           />
         </div>
+
         <div className="mb-3">
-          <label className="form-label">Manufacturer</label>
+          <label className="form-label">Expiry Date</label>
           <input
-              type="text"
+              type="date"
               className="form-control"
-              name="manufacturer"
-              value={drug.manufacturer}
+              name="expiryDate"
+              value={drug.expiryDate}
               onChange={handleChange}
               required
           />
         </div>
+
+        <div className="mb-3">
+          <label className="form-label">Stock</label>
+          <input
+              type="number"
+              className="form-control"
+              name="quantity"
+              value={drug.quantity}
+              onChange={handleChange}
+              required
+              min="0"
+          />
+        </div>
+
         <div className="mb-3">
           <label className="form-label">Price</label>
           <input
@@ -84,29 +106,50 @@ const AddDrug = () => {
               step="0.01"
           />
         </div>
+
         <div className="mb-3">
-          <label className="form-label">Expiry Date</label>
-          <input
-              type="date"
-              className="form-control"
-              name="expiryDate"
-              value={drug.expiryDate}
-              onChange={handleChange}
-              required
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Stock</label>
+          <label className="form-label">Amount</label>
           <input
               type="number"
               className="form-control"
-              name="stock"
-              value={drug.stock}
+              name="amount"
+              value={drug.amount}
               onChange={handleChange}
               required
               min="0"
+              step="0.01"
           />
         </div>
+
+        <div className="mb-3">
+          <label className="form-label">MRP</label>
+          <input
+              type="number"
+              className="form-control"
+              name="mrp"
+              value={drug.mrp}
+              onChange={handleChange}
+              required
+              min="0"
+              step="0.01"
+          />
+        </div>
+
+        <div className="mb-3">
+          <label className="form-label">GST</label>
+          <input
+              type="number"
+              className="form-control"
+              name="gst"
+              value={drug.gst}
+              onChange={handleChange}
+              required
+              min="0"
+              step="0.01"
+          />
+        </div>
+
+
         <button type="submit" className="btn btn-primary">Add Drug</button>
       </form>
     </div>

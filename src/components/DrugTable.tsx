@@ -14,22 +14,26 @@ const DrugTable: React.FC<DrugTableProps> = ({ drugs, onDelete }) => {
       <tr>
           <th>Name</th>
           <th>Batch Number</th>
-          <th>Manufacturer</th>
-          <th>Price</th>
           <th>Expiry Date</th>
-          <th>Stock</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Amount</th>
+          <th>MRP</th>
+          <th>GST</th>
           <th>Actions</th>
       </tr>
       </thead>
-      <tbody>
+        <tbody>
         {drugs.map((drug) => (
             <tr key={drug.id}>
                 <td>{drug.name}</td>
                 <td>{drug.batchNumber}</td>
-                <td>{drug.manufacturer}</td>
-                <td>{drug.price}</td>
                 <td>{drug.expiryDate}</td>
-                <td>{drug.stock}</td>
+                <td>{drug.quantity}</td>
+                <td>{drug.price}</td>
+                <td>{drug.amount}</td>
+                <td>{drug.mrp}</td>
+                <td>{drug.gst}</td>
                 <td>
                     <button className="btn btn-sm btn-primary me-2">
                         <Edit size={16}/>
@@ -43,7 +47,7 @@ const DrugTable: React.FC<DrugTableProps> = ({ drugs, onDelete }) => {
                 </td>
             </tr>
         ))}
-      </tbody>
+        </tbody>
     </table>
   );
 };
