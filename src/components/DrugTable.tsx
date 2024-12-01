@@ -11,35 +11,37 @@ const DrugTable: React.FC<DrugTableProps> = ({ drugs, onDelete }) => {
   return (
     <table className="table table-striped">
       <thead>
-        <tr>
+      <tr>
           <th>Name</th>
+          <th>Batch Number</th>
           <th>Manufacturer</th>
           <th>Price</th>
           <th>Expiry Date</th>
           <th>Stock</th>
           <th>Actions</th>
-        </tr>
+      </tr>
       </thead>
       <tbody>
         {drugs.map((drug) => (
-          <tr key={drug.id}>
-            <td>{drug.name}</td>
-            <td>{drug.manufacturer}</td>
-            <td>${drug.price}</td>
-            <td>{drug.expiryDate}</td>
-            <td>{drug.stock}</td>
-            <td>
-              <button className="btn btn-sm btn-primary me-2">
-                <Edit size={16} />
-              </button>
-              <button 
-                className="btn btn-sm btn-danger"
-                onClick={() => onDelete(drug.id)}
-              >
-                <Trash2 size={16} />
-              </button>
-            </td>
-          </tr>
+            <tr key={drug.id}>
+                <td>{drug.name}</td>
+                <td>{drug.batchNumber}</td>
+                <td>{drug.manufacturer}</td>
+                <td>{drug.price}</td>
+                <td>{drug.expiryDate}</td>
+                <td>{drug.stock}</td>
+                <td>
+                    <button className="btn btn-sm btn-primary me-2">
+                        <Edit size={16}/>
+                    </button>
+                    <button
+                        className="btn btn-sm btn-danger"
+                        onClick={() => onDelete(drug.id)}
+                    >
+                        <Trash2 size={16}/>
+                    </button>
+                </td>
+            </tr>
         ))}
       </tbody>
     </table>

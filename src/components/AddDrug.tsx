@@ -10,7 +10,8 @@ const AddDrug = () => {
     manufacturer: '',
     price: '',
     expiryDate: '',
-    stock: ''
+    stock: '',
+    batchNumber:''
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -40,59 +41,70 @@ const AddDrug = () => {
         <div className="mb-3">
           <label className="form-label">Name</label>
           <input
-            type="text"
-            className="form-control"
-            name="name"
-            value={drug.name}
-            onChange={handleChange}
-            required
+              type="text"
+              className="form-control"
+              name="name"
+              value={drug.name}
+              onChange={handleChange}
+              required
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Batch Number</label>
+          <input
+              type="text"
+              className="form-control"
+              name="batchNumber"
+              value={drug.batchNumber}
+              onChange={handleChange}
+              required
           />
         </div>
         <div className="mb-3">
           <label className="form-label">Manufacturer</label>
           <input
-            type="text"
-            className="form-control"
-            name="manufacturer"
-            value={drug.manufacturer}
-            onChange={handleChange}
-            required
+              type="text"
+              className="form-control"
+              name="manufacturer"
+              value={drug.manufacturer}
+              onChange={handleChange}
+              required
           />
         </div>
         <div className="mb-3">
           <label className="form-label">Price</label>
           <input
-            type="number"
-            className="form-control"
-            name="price"
-            value={drug.price}
-            onChange={handleChange}
-            required
-            min="0"
-            step="0.01"
+              type="number"
+              className="form-control"
+              name="price"
+              value={drug.price}
+              onChange={handleChange}
+              required
+              min="0"
+              step="0.01"
           />
         </div>
         <div className="mb-3">
           <label className="form-label">Expiry Date</label>
           <input
-            type="date"
-            className="form-control"
-            name="expiryDate"
-            value={drug.expiryDate}
-            onChange={handleChange}
-            required
+              type="date"
+              className="form-control"
+              name="expiryDate"
+              value={drug.expiryDate}
+              onChange={handleChange}
+              required
           />
         </div>
         <div className="mb-3">
           <label className="form-label">Stock</label>
           <input
-            type="number"
-            className="form-control"
-            name="stock"
-            value={drug.stock}
-            onChange={handleChange}
-            required
-            min="0"
+              type="number"
+              className="form-control"
+              name="stock"
+              value={drug.stock}
+              onChange={handleChange}
+              required
+              min="0"
           />
         </div>
         <button type="submit" className="btn btn-primary">Add Drug</button>

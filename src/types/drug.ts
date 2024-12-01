@@ -5,6 +5,7 @@ export interface Drug {
   price: number;
   expiryDate: string;
   stock: number;
+  batchNumber: string;
 }
 
 export interface PaginatedResponse<T> {
